@@ -1,0 +1,80 @@
+<div class="container-fluid background" >
+  <div class="row">
+      <div class="col-md-2 col-sm-2 col-xs-12"></div>
+      <div class="col-md-8 col-sm-8 col-xs-12" align="center">
+          <form #RegForm="ngForm" (ngSubmit)="onSubmit(RegForm.value)" class="form" id="log" novalidate>
+              <h1>Register</h1>
+               <div class="form-group">
+                    
+                        <label for="name"><h4>First Name</h4></label>
+                        <input type="text" class="form-control" name="name" required #name #nameModelRef="ngModel" id="name" placeholder=" Name" ngModel>
+                        <div *ngIf="nameModelRef.errors && nameModelRef.touched" class="alert alert-danger">
+                            <div [hidden]="!nameModelRef.errors.required" class="alert alert-danger">
+                              Please enter name
+                            </div>
+                        </div>
+
+                </div>
+              
+
+                <div class="form-group">
+                    
+                    
+                        <label for="dob"><h4>Date Of Birth</h4></label>
+                        <input type="date" class="form-control" name="dob" required #dob #dobModelRef="ngModel" id="dob" placeholder="Date Of Birth" ngModel>
+                        <div *ngIf="dobModelRef.errors && dobModelRef.touched" class="alert alert-danger">
+                            <div [hidden]="!dobModelRef.errors.required" class="alert alert-danger">
+                              Please enter Date of birth
+                            </div>
+                        </div>
+                </div>
+                 
+                <div class="form-group">
+                    
+                    
+                        <label for="address"><h4>address</h4></label>
+                        <input type="text" class="form-control" name="address" required #address #addressModelRef="ngModel" id="address" placeholder="address" ngModel>
+                        <div *ngIf="addressModelRef.errors && addressModelRef.touched" class="alert alert-danger">
+                            <div [hidden]="!addressModelRef.errors.required" class="alert alert-danger">
+                              Please enter address
+                            </div>
+                        </div>
+                </div>
+                
+              
+                <div class="form-group">
+                   
+                       <label for="phoneNumber"><h4>Phone Number </h4></label>
+                        <input type="text" class="form-control" name="phoneNumber" required minlength="10" #phoneNumber #phoneNumberModelRef="ngModel" id="phoneNumber" placeholder="Phone Number " pattern="^[1-9][0-9]{9}$" ngModel>
+                        <div *ngIf="phoneNumberModelRef.errors && phoneNumberModelRef.touched" class="alert alert-danger">
+                            <div [hidden]="!phoneNumberModelRef.errors.required" class="alert alert-danger">
+                              Please enter phone Number
+                            </div>
+                            <div [hidden]="!phoneNumberModelRef.errors.pattern" class="alert alert-danger">
+                              Invalid phone Number               
+                            </div>
+
+                        </div>
+                    
+                </div>
+                <div class="form-group">
+                    
+                    
+                        <label for="email"><h4>email</h4></label>
+                        <input type="email" class="form-control" name="email" required #email #emailModelRef="ngModel" id="email" placeholder="email" ngModel>
+                        <div *ngIf="emailModelRef.errors && emailModelRef.touched" class="alert alert-danger">
+                            <div [hidden]="!emailModelRef.errors.required" class="alert alert-danger">
+                              Please enter email id
+                            </div>
+                        </div>
+                </div>
+              
+               
+              <div class="form-group">
+                  <button [disabled]="!RegForm.form.valid" type="submit" class="btn btn-success">Register</button>
+              </div>
+              <div class="btn-group" style="align-self: center;">
+                  <div id="para"><p>Already Registered? <a routerLink="/login" class="btn1">Sign In Here</a></p></div> 
+              </div>
+          </form>
+      </div>

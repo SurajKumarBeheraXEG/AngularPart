@@ -1,0 +1,26 @@
+<div>
+<table class="mt-3 table table-hover">
+    <thead class="table-dark">
+      <tr>
+        
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+        
+        
+      <tr *ngFor="let employeeArrays of employeeArray">
+        
+        <td>{{ employeeArrays.name }}</td>
+        <td>{{ employeeArrays.email }}</td>
+        <td>{{ employeeArrays.phoneNumber }}</td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+
+</div>

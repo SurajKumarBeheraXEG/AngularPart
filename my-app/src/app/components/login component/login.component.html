@@ -1,0 +1,34 @@
+
+<div class="container-fluid background" >
+    <div class="row">
+        <div class="col-md-3 col-sm-2 col-xs-12"></div>
+        <div class="col-md-6 col-sm-8 col-xs-12" align="center">
+            <form #LoginForm="ngForm" (ngSubmit)="onSubmit(LoginForm.value)" class="form" id="log" novalidate>
+                <h1>Login</h1>
+    
+                <div class="form-group">
+                    <label for="Username">User Name</label>
+                    <input type="text" class="form-control" name="Username" required #Username #UsernameModelRef="ngModel" placeholder="User Name" id="Username" ngModel>
+                      <div *ngIf="UsernameModelRef.errors && UsernameModelRef.touched" class="alert alert-danger">
+                        <div [hidden]="!UsernameModelRef.errors.required" class="alert alert-danger">
+                          Please enter Username
+                        </div>
+                      </div>
+                </div>       
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    <input type="password" class="form-control" name="Password" required #Password #PasswordModelRef="ngModel" placeholder="Password" id="Password" ngModel>
+                      <div *ngIf="PasswordModelRef.errors && PasswordModelRef.touched" class="alert alert-danger">
+                        <div [hidden]="!PasswordModelRef.errors.required" class="alert alert-danger">
+                          Please enter Password
+                        </div>
+                      </div>  
+                </div>
+                <div class="form-group">
+                  <button [disabled]="!LoginForm.form.valid" type="submit" class="btn btn-success">Login</button>
+                </div>
+                <div class="btn-group" style="align-self: center;">
+                    <div id="para"><p>New here? <a routerLink="/register" class="btn1">Register Now</a></p></div>
+                </div>
+            </form>
+        </div>
